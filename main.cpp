@@ -9,16 +9,22 @@
 #include <iostream>
 #include "utility.hpp"
 #include "account.hpp"
+#include "admin.hpp"
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << generateID()<<std::endl;
+//    std::cout << generateID()<<std::endl;
     
-    Employee newEmp,newEmp2;
+    Admin newAdmin("a@a.com");
     
+    newAdmin.createJob(1, 2, "java");
+    newAdmin.createJob(1, 2, "java");
     
-    
-    std::cout<<newEmp.getAccountId();
+    for(auto &job:newAdmin.getAllJobs())
+    {
+        std::cout << job.getJobId()<<std::endl;
+    }
     
     
     

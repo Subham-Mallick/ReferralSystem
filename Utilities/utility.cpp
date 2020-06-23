@@ -7,6 +7,9 @@
 //
 
 #include "utility.hpp"
+#include "jobList.hpp"
+#include "candidate.hpp"
+
 #include <random>
 
 std::string generateID(){
@@ -26,7 +29,10 @@ std::string generateID(){
     
 }
 
-bool preScreenFilter(){
-    //todo
+bool preScreenFilter(Job job, Candidate candidate){
+    
+    //Already applied for job
+    
+    
     return false;
 }

@@ -19,8 +19,9 @@ protected:
     std::string account_id;
     std::string email;
 public:
-    Account(){
+    Account(std::string email){
         account_id = generateID();
+        this->email = email;
     }
     
     std::string getAccountId(){
@@ -34,13 +35,6 @@ public:
     void setEmail(std::string email){
         this->email = email;
     }
-};
-
-class Employee:public Account{
-    
-};
-
-class Candidate:public Account{
 };
 
 

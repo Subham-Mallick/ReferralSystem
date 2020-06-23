@@ -19,39 +19,39 @@ private:
     std::string mandatory_skill;
 public:
     
-    Job(int min_experience,int max_experience,std::string mandatory_skill){
-        this->job_id = generateID();
-        this->min_experience = min_experience;
-        this->max_experience = max_experience;
-        this->mandatory_skill = mandatory_skill;
+    Job(int min_experience_,int max_experience_,std::string mandatory_skill_){
+        job_id = generateID();
+        min_experience = min_experience_;
+        max_experience = max_experience_;
+        mandatory_skill = mandatory_skill_;
     }
     
-    std::string getJobId(){
-        return this->job_id;
+    std::string getJobId() const{
+        return job_id;
     }
     
-    int getMinExperience(){
-        return this->min_experience;
+    int getMinExperience() const{
+        return min_experience;
     }
     
-    int getMaxExperience(){
-        return this->max_experience;
+    int getMaxExperience() const{
+        return max_experience;
     }
     
-    std::string getMandatorySkill(){
-        return this->mandatory_skill;
+    std::string getMandatorySkill() const{
+        return mandatory_skill;
     }
     
-    void setMinExperience(int min_experience){
-        this->min_experience = min_experience;
+    void setMinExperience(int min_experience_){
+        min_experience = min_experience_;
     }
     
-    void setMaxExperience(int max_experience){
-        this->max_experience = max_experience;
+    void setMaxExperience(int max_experience_){
+        max_experience = max_experience_;
     }
     
-    void setMandatorySkill(std::string mandatory_skill){
-        this->mandatory_skill = mandatory_skill;
+    void setMandatorySkill(std::string mandatory_skill_){
+        mandatory_skill = mandatory_skill_;
     }
     
 };
