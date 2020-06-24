@@ -11,9 +11,19 @@
 
 #include <iostream>
 
-
 std::string generateID();
 
 bool preScreenFilter();
+
+enum CandidateStatus{
+    IDLE,
+    REFERRED,
+    IN_PROCESS,
+    REJECT,
+    OFFERED,
+    JOINED
+}candidateStatus;
+
+
 
 #endif /* utility_hpp */

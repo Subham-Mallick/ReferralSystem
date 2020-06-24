@@ -11,6 +11,7 @@
 
 #include "jobList.hpp"
 #include "referralStorage.hpp"
+#include "utility.hpp"
 
 class Admin:public Account{
     ReferralStorage *referralStorage = ReferralStorage::getInstance();
@@ -27,9 +28,28 @@ public:
         return referralStorage->getAllJobs();
     }
     
-    void banCandidate(Candidate candidate){
-        
+    void banCandidateById(std::string candidateId){
+        std::vector<Candidate> candidates = referralStorage->getAllCandidates();
+        for(auto &candidate_value : candidates){
+            if(candidate_value.getAccountId()==candidateId){
+                candidate_value.setIsBan(true);
+                referralStorage->setCandidates(candidates);
+                break;
+            }
+        }
     }
+    
+    void changeCandidateState(std::string candidateId,CandidateStatus candidateStatus){
+        std::vector<Candidate> candidates = referralStorage->getAllCandidates();
+        for(auto &candidate_value : candidates){
+            if(candidate_value.getAccountId()==candidateId){
+                candidate_value.setCandidateStatus(candidateStatus);
+                referralStorage->setCandidates(candidates);
+                break;
+            }
+        }
+    }
+    
     
     
 };

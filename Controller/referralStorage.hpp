@@ -40,12 +40,51 @@ public:
     }
     
     
+    
+    void setJobs(std::vector<Job> jobs_){
+        jobs = jobs_;
+        
+        //update in jobMap
+        for(auto &newJob:jobs){
+            for(auto &oldJob:jobMap){
+                
+                if(newJob.getJobId()==oldJob.first.getJobId()){
+                    auto entry = jobMap.find(oldJob.first);
+                    auto const value = std::move(entry->second);
+                    jobMap.erase(entry);
+                    jobMap.insert({newJob,std::move(value)});
+                }
+                
+            }
+        }
+        
+        //update in candidateMap
+        for(auto &newJob:jobs){
+            for(auto &candidate:candidateMap){
+                for(auto &job:candidate.second){
+                    
+                    if(job.getJobId()==newJob.getJobId()){
+                        job = newJob;
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    void setCandidates(std::vector<Candidate> candidates_){
+        candidates = candidates_;
+    }
+    
     void addJob(Job newJob){
         jobs.push_back(newJob);
     }
     
     void deleteJobUsingId(std::string jobId){
         //todo
+        
+        
+        
     }
     
     void addCandidate(Candidate candidate){
@@ -66,6 +105,6 @@ public:
     
 };
 
-ReferralStorage* ReferralStorage::referralStorage = nullptr;
+ReferralStorage* ReferralStorage::referralStorage = NULL;
 
 #endif /* referralStorage_hpp */
